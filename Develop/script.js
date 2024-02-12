@@ -43,7 +43,7 @@
       confirm1: confirm1,  // creating a key to store functionality of confirm1 for special characters
       confirm2: confirm2,  // creating a key to store functionality of confirm2 for numbers
       confirm3: confirm3,  // creating a key to store functionality of confirm3 for lowercase letters
-      confirm4: confirm4,  // creating a key to store functionality of confirm4 for uppercase letters
+      confirm4: confirm4  // creating a key to store functionality of confirm4 for uppercase letters
     };
     return anyPassOptions; // stop execution of our object
   }
@@ -56,7 +56,7 @@
   
   function generatingOurPassword() {
 
-    var ourOptions = anyPassOptions(); //assigning key values from the object created for password options
+    var ourOptions = anyPassOptions; //assigning key values from the object created for password options
     
     var concatCharacters = []; // adding password characters defined on my arrays of each character types at the beginning of the document
 
@@ -73,25 +73,25 @@
 
     if (ourOptions.confirm1) {
       concatCharacters = concatCharacters.concat(specialCharacters); // specifying we are adding special characters to our password
-      addingCharacters.push(anyPassword(specialCharacters));
+      addingCharacters.push(anyPassword(specialCharacters)); //generating random special characters to our password before print it.
     }
     
     
     if (ourOptions.confirm2) {
-      concatCharacters = concatCharacters.concat(numbers);
-      addingCharacters.push(anyPassword(numbers));
+      concatCharacters = concatCharacters.concat(numbers); // adding numbers to our password
+      addingCharacters.push(anyPassword(numbers)); //generating random numbers to our password before print it.
     }
     
     
     if (ourOptions.confirm3) {
-      concatCharacters = concatCharacters.concat(lowerCaseAlph);
-      addingCharacters.push(anyPassword(lowerCaseAlph));
+      concatCharacters = concatCharacters.concat(lowerCaseAlph); // adding lowercase letters to
+      addingCharacters.push(anyPassword(lowerCaseAlph)); //generating random lowercase letters to our password before print it.
     }
     
     
     if (ourOptions.confirm4) {
       concatCharacters = concatCharacters.concat(upperCaseAlph);
-      addingCharacters.push(anyPassword(upperCaseAlph));
+      addingCharacters.push(anyPassword(upperCaseAlph)); //generating random uppercase letters to our password before print it.
     }
     
     for (var i = 0; i < ourOptions.ourPasswordLength; i++) {
@@ -99,7 +99,7 @@
       output.push(concatCharacters);
     }
     
-    for (var i = 0; i < addingCharacters.length; i++) {
+    for (var i = 0; i < addingCharacters.ourPasswordLength; i++) {
       output[i] = addingCharacters[i];
     }
     
@@ -108,6 +108,8 @@
   
   var generateBtn = document.querySelector('#generate');
   
+//function to display the final output being generated on the generatingOurPassword function
+
   function writePassword() {
     var password = generatingOurPassword();
     var passwordText = document.querySelector('#password');
