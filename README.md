@@ -34,4 +34,4 @@ N/A
 
 # License
 
-MIT License link:
+MIT License link: [link text](https://github.com/Paul449/pass-paul-word?tab=MIT-1-ov-file)
