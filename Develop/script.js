@@ -110,12 +110,12 @@ var ourPasswordLength = 0;
     }
     */
     for(var i = 0; i < ourPasswordLength;i++) {
-      output.push(concatCharacters[Math.floor(Math.random()*ourPasswordLength)]);
+      output.push(concatCharacters[Math.floor(Math.random()*concatCharacters.length)]);
       
     }
 
     console.log(output);
-
+    console.log(ourPasswordLength);
     return output.join(''); 
     
     
