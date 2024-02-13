@@ -16,14 +16,17 @@ Employees can only access this webapp through any web browser(Google Chrome,Fire
 
 # Screenshot
 
+![screenshot](imgfolder/Screenshot%202024-02-12%20220055.png)
+
+
 
 # Links
 
 here are the links of the deployed application and repository:
 
-[Link Here]
+[website](https://paul449.github.io/pass-paul-word/)
 
-[Link Here]
+[repository](https://github.com/Paul449/pass-paul-word)
 
 # Credits
 
