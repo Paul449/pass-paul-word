@@ -9,9 +9,12 @@
   
   var upperCaseAlph = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']; //storing uppercase letters in a array
   
+var ourPasswordLength = 0;
+
+
   function optionalPassword() {
     
-    var ourPasswordLength = parseInt(prompt('How many characters would you like your password to contain?'), 10); // using parseInt to convert string into a number; accepting only numbers as value.
+   ourPasswordLength = parseInt(prompt('How many characters would you like your password to contain?'), 10); // using parseInt to convert string into a number; accepting only numbers as value.
     
     if (Number.isNaN(ourPasswordLength)) { //specifying if the value typed on our prompt is a number; if not then it will display an alert box in order to generate passaword we need to input a number, otherwirse will be false
       alert('Password length must be provided as a number'); //alert box indicating the output if we do not enter a number in the prompt
@@ -24,7 +27,7 @@
     }
     
     if (ourPasswordLength > 128) {
-      alert('Password length must less than 129 characters'); // the maximum number value that we can type in our prompt (between 8 and 129 characters)
+      alert('Password length must be less than 129 characters'); // the maximum number value that we can type in our prompt (between 8 and 129 characters)
       return null; //password more than 129 characters have no value anymore
     }
    
@@ -49,14 +52,14 @@
   }
   
   function anyPassword(arr) {
-    var getIndex = Math.floor(Math.random() * arr.ourPasswordLength); // using math floor and math random to generate random characters when specifying number values in the prompt.
+    var getIndex = Math.floor(Math.random() * arr.length); // using math floor and math random to generate random characters when specifying number values in the prompt.
     var getElement = arr[getIndex]; // using bracket notation
     return getElement; // specifying we are stopping the execution of this function with the last output generated
   }
   
   function generatingOurPassword() {
 
-    var ourOptions = anyPassOptions; //assigning key values from the object created for password options
+    var ourOptions = optionalPassword(); //assigning key values from the object created for password options
     
     var concatCharacters = []; // adding password characters defined on my arrays of each character types at the beginning of the document
 
@@ -73,27 +76,30 @@
 
     if (ourOptions.confirm1) {
       concatCharacters = concatCharacters.concat(specialCharacters); // specifying we are adding special characters to our password
-      addingCharacters.push(anyPassword(specialCharacters)); //generating random special characters to our password before print it.
+      addingCharacters.concat(specialCharacters); //generating random special characters to our password before print it.
     }
     
     
     if (ourOptions.confirm2) {
       concatCharacters = concatCharacters.concat(numbers); // adding numbers to our password
-      addingCharacters.push(anyPassword(numbers)); //generating random numbers to our password before print it.
+      addingCharacters.concat(numbers); //generating random numbers to our password before print it.
     }
     
     
     if (ourOptions.confirm3) {
       concatCharacters = concatCharacters.concat(lowerCaseAlph); // adding lowercase letters to
-      addingCharacters.push(anyPassword(lowerCaseAlph)); //generating random lowercase letters to our password before print it.
+      addingCharacters.concat(lowerCaseAlph); //generating random lowercase letters to our password before print it.
     }
     
     
     if (ourOptions.confirm4) {
       concatCharacters = concatCharacters.concat(upperCaseAlph);
-      addingCharacters.push(anyPassword(upperCaseAlph)); //generating random uppercase letters to our password before print it.
+      addingCharacters.concat(upperCaseAlph); //generating random uppercase letters to our password before print it.
     }
-    
+    console.log(concatCharacters)
+   // console.log("this is adding characters",  addingCharacters);
+
+/*
     for (var i = 0; i < ourOptions.ourPasswordLength; i++) {
       var concatCharacters = anyPassword(concatCharacters);
       output.push(concatCharacters);
@@ -102,8 +108,17 @@
     for (var i = 0; i < addingCharacters.ourPasswordLength; i++) {
       output[i] = addingCharacters[i];
     }
+    */
+    for(var i = 0; i < ourPasswordLength;i++) {
+      output.push(concatCharacters[Math.floor(Math.random()*ourPasswordLength)]);
+      
+    }
+
+    console.log(output);
+
+    return output.join(''); 
     
-    return output.join('');
+    
   }
   
   var generateBtn = document.querySelector('#generate');
